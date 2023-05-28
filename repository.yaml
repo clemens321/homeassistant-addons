@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: Clemens321's add-on repository
+url: 'https://github.com/clemens321/homeassistant-addons'
+maintainer: Clemens Brauers <git@admin-cb.de>
