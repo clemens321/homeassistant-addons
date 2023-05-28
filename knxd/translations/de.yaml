@@ -1,0 +1,28 @@
+configuration:
+  knxd_name:
+    name: Bezeichnung der knxd Instanz
+    description: Legt den Namen fest unter dem sich der knxd-Dienst zu erkennen gibt
+  knx_mode:
+    name: Art der KNX-Verbindung
+    description: Empfohlen ist die Verbindung im ROUTER-Modus.
+  knx_gateway:
+    name: KNX-Gateway-Adresse
+    description: 'IP-Adresse des Interfaces bzw. der Multicast-Adresse (Standard: 224.0.23.12)'
+  knx_addr:
+    name: KNX-Adresse des knxd-Prozesses
+    description: KNX-Geräteadresse, die der knxd-Prozess nutzen soll
+  knx_client_addr:
+    name: KNX-Adresse für Tunnel-Clients
+    description: Erste Adresse, die Tunnel-Clients zugewiesen werden soll
+  knx_client_count:
+    name: Anzahl der Client-Adressen
+    description: Bestimmt die Adress-Anzahl die Tunnel-Clients zugewiesen werden können
+  log_level:
+    name: Log-Level
+    description: 'Mögliche Werte:
+      0 = nichts, 1 = Fatal, 2 = Kritisch, 3 = Fehler,
+      4 = Warnungen, 5 = Notizen, 6 = Infos, 7 = Debug, 8 = Trace'
+  log_trace:
+    name: Trace-Optionen als Bitmaske 
+    description: 'Hexadezimal-Wert, beginnend mit "0x".
+      Siehe https://github.com/knxd/knxd/blob/main/doc/inifile.rst#debugging-and-logging'

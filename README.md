@@ -8,4 +8,4 @@ This repository contains a few add-ons for home assistant os.
 
 This repository contains the following add-ons
 
-_nothing yet_
+### [knxd](./knxd)

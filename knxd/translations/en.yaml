@@ -1,0 +1,28 @@
+configuration:
+  knxd_name:
+    name: Name of the knxd instance
+    description: Defines the name knxd presents.
+  knx_mode:
+    name: Type of KNX connection
+    description: Preferred is to use the "router" mode.
+  knx_gateway:
+    name: KNX gateway address
+    description: 'IP-address of the knx interface or multicast address (default: 224.0.23.12)'
+  knx_addr:
+    name: KNX addresse of knxd
+    description: KNX device address which knxd will use
+  knx_client_addr:
+    name: KNX addresses for tunnel clients
+    description: First device address which will be assigned to tunnel clients
+  knx_client_count:
+    name: Count of client addresses
+    description: Defines how many addresses will be assigned to tunnel clients
+  log_level:
+    name: Log level
+    description: 'Possible values:
+      0 = nothing, 1 = fatal, 2 = critical, 3 = error,
+      4 = warning, 5 = notice, 6 = info, 7 = debug, 8 = trace'
+  log_trace:
+    name: Trace options as bitmask
+    description: 'Hexadecimal value, beginning with "0x".
+      See https://github.com/knxd/knxd/blob/main/doc/inifile.rst#debugging-and-logging'

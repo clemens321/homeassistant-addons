@@ -1,0 +1,10 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: knxd
+# Runs knxd
+# ==============================================================================
+bashio::log.info "Starting knxd..."
+
+# RUN knxd
+exec knxd /etc/knxd/knxd.ini

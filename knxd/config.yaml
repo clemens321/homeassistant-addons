@@ -1,0 +1,34 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: "knxd"
+version: "0.1.4"
+slug: "knxd"
+description: "A knx daemon, e.g. to use together with a vpn client for remote access"
+url: "https://github.com/clemens321/homeassistant-addons/tree/main/knxd"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+map: []
+host_network: true
+options:
+  knxd_name: "Home-Assistant knxd"
+  knx_mode: "ROUTER"
+  knx_gateway: "224.0.23.12"
+  knx_addr: "2.0.0"
+  knx_client_addr: "2.0.1"
+  knx_client_count: 9
+  log_level: 5
+  log_trace: "0xfc"
+schema:
+  knxd_name: str
+  knx_mode: list(TUNNEL|ROUTER)
+  knx_gateway: str
+  knx_addr: match(^\d+\.\d+\.\d+$)
+  knx_client_addr: match(^\d+\.\d+\.\d+)
+  knx_client_count: int(1,)
+  log_level: int(0,8)
+  log_trace: match(^0x[0-9a-f]+$)
+image: "ghcr.io/clemens321/{arch}-addon-knxd"

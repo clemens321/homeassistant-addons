@@ -1,0 +1,67 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: knxd
+# Generates the config file from configuration options
+# ==============================================================================
+
+CONFIG_PATH=/data/options.json
+
+mkdir -p /etc/knxd
+
+CONNECTIONS="A.tcp,B.server"
+
+if [ "$(bashio::config 'knx_mode')" = "TUNNEL" ]; then
+    CONNECTIONS="$CONNECTIONS,C.tunnel"
+fi
+
+cat > /etc/knxd/knxd.ini <<EOF
+[main]
+name = $(bashio::config 'knxd_name')
+addr = $(bashio::config 'knx_addr')
+client-addrs = $(bashio::config 'knx_client_addr'):$(bashio::config 'knx_client_count')
+connections = $CONNECTIONS
+background = false
+debug = debug-server
+
+[debug-server]
+; 0 to 6 for none, fatal, error, warning, note, info, debug
+error-level = $(bashio::config 'log_level')
+trace-mask = $(bashio::config 'log_trace')
+
+[A.tcp]
+server = knxd_tcp
+port = 6720
+
+[B.server]
+server = ets_router
+discover = true
+tunnel = B.tunnel
+EOF
+
+if [ "$(bashio::config 'knx_mode')" = "TUNNEL" ]; then
+cat >>/etc/knxd/knxd.ini <<EOF
+
+[C.tunnel]
+driver = ipt
+ip-address = $(bashio::config 'knx_gateway')
+filters = C.single,C.retry
+
+[C.single]
+filter = single
+address = 1.0.9
+
+[C.retry]
+filter = retry
+retry-delay = 10
+EOF
+else
+cat >>/etc/knxd/knxd.ini <<EOF
+multicast-address = $(bashio::config 'knx_gateway')
+router = B.router
+EOF
+fi
+
+echo "Created config file:"
+cat /etc/knxd/knxd.ini
+echo
