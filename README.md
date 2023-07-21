@@ -9,3 +9,4 @@ This repository contains a few add-ons for home assistant os.
 This repository contains the following add-ons
 
 ### [knxd](./knxd)
+A knx daemon for tunneling and/or routing knx telegrams, e.g. to use with an older/simpler interface or together with a vpn tunnel.
