@@ -11,8 +11,6 @@ description: |-
 url: "https://github.com/clemens321/homeassistant-addons/tree/main/jdownloader"
 image: "ghcr.io/clemens321/{arch}-addon-jdownloader"
 arch:
-  - armhf
-  - armv7
   - aarch64
   - amd64
   - i386
