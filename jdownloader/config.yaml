@@ -24,8 +24,6 @@ map:
   - config:rw
   - media:rw
   - share:rw
-options: {}
-schema: {}
 apparmor: false
 ports:
   9666/tcp: ~
