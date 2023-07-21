@@ -1,0 +1,33 @@
+---
+name: JDownloader 2
+version: v23.06.1
+slug: jdownloader
+description: |-
+  JDownloader 2 is a free, open-source download management tool with a huge
+  community of developers that makes downloading as easy and fast as it should be.
+  Users can start, stop or pause downloads, set bandwith limitations, auto-extract
+  archives and much more. It's an easy-to-extend framework that can save hours of
+  your valuable time every day!
+url: "https://github.com/clemens321/homeassistant-addons/tree/main/jdownloader"
+image: "ghcr.io/clemens321/{arch}-addon-jdownloader"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+ingress: true
+ingress_port: 5800
+init: false
+panel_icon: mdi:progress-download
+map:
+  - config:rw
+  - media:rw
+  - share:rw
+options: {}
+schema: {}
+apparmor: false
+ports:
+  9666/tcp: ~
+ports_description:
+  9666/tcp: "Click'n'Load (disable `Advanced Settings` => `RemoteAPI: Extern Interface Localhost Only` to use this)"

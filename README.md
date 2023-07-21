@@ -10,3 +10,6 @@ This repository contains the following add-ons
 
 ### [knxd](./knxd)
 A knx daemon for tunneling and/or routing knx telegrams, e.g. to use with an older/simpler interface or together with a vpn tunnel.
+
+### [jdownloader](./jdownloader)
+JDownloader 2 is a download management tool that makes downloading as easy and fast as it should be.
