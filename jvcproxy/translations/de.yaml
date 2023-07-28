@@ -1,0 +1,10 @@
+configuration:
+  jvc_addr:
+    name: JVC Adresse
+    description: Hostname oder IP-Adresse des JVC Projektors
+  jvc_port:
+    name: Fernsteuerungs-Port des JVC
+  sleep_us:
+    name: Wartezeit in der Hauptschleife
+    description: Diese Einstellung reduziert die CPU Auslastung, kann aber die Reaktion verlangsamen
+

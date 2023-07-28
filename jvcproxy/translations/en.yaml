@@ -1,0 +1,9 @@
+configuration:
+  jvc_addr:
+    name: JVC adress
+    description: Hostname or ip address of the jvc projector
+  jvc_port:
+    name: JVC remote control port
+  sleep_us:
+    name: Waiting time in main loop
+    description: This lowers cpu usage, but may increase command latency

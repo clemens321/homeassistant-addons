@@ -1,0 +1,22 @@
+name: "JVC Proxy"
+version: "0.0.5"
+slug: "jvcproxy"
+description: "A multiplexing proxy for JVC projectors"
+url: "https://github.com/clemens321/homeassistant-addons/tree/main/jvcproxy"
+arch:
+  - amd64
+init: false
+map: []
+options:
+  jvc_addr: ""
+  jvc_port: "20554"
+  sleep_us: "10000"
+schema:
+  jvc_addr: str
+  jvc_port: int(1,)
+  sleep_us: int
+ports:
+  20554/tcp: 20554
+ports_description:
+  20554/tcp: "JVC remote control port"
+#image: "ghcr.io/clemens321/{arch}-addon-jvcproxy"
