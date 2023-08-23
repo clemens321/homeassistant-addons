@@ -1,0 +1,21 @@
+---
+name: Syslogserver
+version: v0.2
+slug: syslogserver
+description: |-
+  Combines a syslog server with pimp-my-logs
+url: "https://github.com/clemens321/homeassistant-addons/tree/main/syslogserver"
+#image: "ghcr.io/clemens321/{arch}-addon-syslogserver"
+arch:
+  - aarch64
+  - amd64
+  - i386
+ingress: true
+ingress_port: 80
+init: false
+panel_icon: mdi:progress-download
+apparmor: false
+ports:
+  514/udp: 514
+ports_description:
+  514/udp: "Syslog port"
