@@ -1,6 +1,6 @@
 ---
 name: Syslogserver
-version: v0.1
+version: v0.2
 slug: syslogserver
 description: |-
   Combines a syslog server with pimp-my-logs
@@ -16,6 +16,6 @@ init: false
 panel_icon: mdi:progress-download
 apparmor: false
 ports:
-  514/udp: ~
+  514/udp: 514
 ports_description:
   514/udp: "Syslog port"
