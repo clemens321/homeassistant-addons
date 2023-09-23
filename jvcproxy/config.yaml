@@ -19,4 +19,4 @@ ports:
   20554/tcp: 20554
 ports_description:
   20554/tcp: "JVC remote control port"
-#image: "ghcr.io/clemens321/{arch}-addon-jvcproxy"
+image: "ghcr.io/clemens321/{arch}-addon-jvcproxy"
