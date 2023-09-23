@@ -8,8 +8,11 @@ This repository contains a few add-ons for home assistant os.
 
 This repository contains the following add-ons
 
-### [knxd](./knxd)
-A knx daemon for tunneling and/or routing knx telegrams, e.g. to use with an older/simpler interface or together with a vpn tunnel.
-
 ### [jdownloader](./jdownloader)
 JDownloader 2 is a download management tool that makes downloading as easy and fast as it should be.
+
+### [jvcproxy](./jvcproxy)
+A proxy service for jvc projector's remote service to handle multiple connections at the same time.
+
+### [knxd](./knxd)
+A knx daemon for tunneling and/or routing knx telegrams, e.g. to use with an older/simpler interface or together with a vpn tunnel.
