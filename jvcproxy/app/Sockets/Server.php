@@ -389,8 +389,8 @@ class Server
             $this->masterSocket,
             $this->maxClients,
             $this->maxRead,
-            $this->clients,
             $this->readType
         );
+        $this->clients = [];
     }
 }

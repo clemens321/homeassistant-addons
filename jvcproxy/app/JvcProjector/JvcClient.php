@@ -208,6 +208,10 @@ class JvcClient implements JvcClientInterface
      */
     public function operation($command)
     {
+        if (!$this->isConnected()) {
+            $this->connect();
+        }
+
         // 0x21 = Operation
         // 0x89 = Unit code (fixed)
         // 0x01 = Individual code (fixed)
@@ -228,26 +232,38 @@ class JvcClient implements JvcClientInterface
      */
     public function request($command, $readLength = null)
     {
-        // 0x3f = Request
-        // 0x89 = Unit code (fixed)
-        // 0x01 = Individual code (fixed)
-        // 0x0a = line feed (fixed)
-        $this->sendBytes(chr(0x3f).chr(0x89).chr(0x01).$command.chr(0x0a));
-
-        // Expect usual ACK first
-        $this->expect(chr(0x06).chr(0x89).chr(0x01).substr($command, 0, 2).chr(0x0a));
-        $this->expect(chr(0x40).chr(0x89).chr(0x01).substr($command, 0, 2));
-        if (null === $readLength) {
-            $data = '';
-            while (chr(0x0a) !== ($byte = $this->receiveBytes(1))) {
-                $data .= $byte;
-            };
-
-            return $data;
+        $reconnect = true;
+        if (!$this->isConnected()) {
+            $reconnect = false;
+            $this->connect();
         }
 
-        $data = $this->receiveBytes($readLength);
-        $this->expect(chr(0x0a));
+        try {
+            // 0x3f = Request
+            // 0x89 = Unit code (fixed)
+            // 0x01 = Individual code (fixed)
+            // 0x0a = line feed (fixed)
+            $this->sendBytes(chr(0x3f).chr(0x89).chr(0x01).$command.chr(0x0a));
+
+            // Expect usual ACK first
+            $this->expect(chr(0x06).chr(0x89).chr(0x01).substr($command, 0, 2).chr(0x0a));
+            $this->expect(chr(0x40).chr(0x89).chr(0x01).substr($command, 0, 2));
+            if (null === $readLength) {
+                $data = '';
+                while (chr(0x0a) !== ($byte = $this->receiveBytes(1))) {
+                    $data .= $byte;
+                };
+
+                return $data;
+            }
+
+            $data = $this->receiveBytes($readLength);
+            $this->expect(chr(0x0a));
+        } catch (ConnectionClosedException $e) {
+            if ($reconnect) {
+                return $this->request($command, $readLength = null);
+            }
+        }
 
         return $data;
     }
@@ -302,12 +318,12 @@ class JvcClient implements JvcClientInterface
      */
     protected function sendBytes($bytes)
     {
-        if (!$this->isConnected()) {
-            $this->connect();
-        }
-
         $res = @fwrite($this->socket, $bytes);
-        if (!$res) {
+        if (!$res && feof($this->socket)) {
+            $this->socket = null;
+
+            throw new ConnectionClosedException();
+        } elseif (!$res) {
             throw new \Exception('Could not write to socket');
         }
 

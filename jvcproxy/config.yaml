@@ -1,5 +1,5 @@
 name: "JVC Proxy"
-version: "0.0.5"
+version: "0.0.6"
 slug: "jvcproxy"
 description: "A multiplexing proxy for JVC projectors"
 url: "https://github.com/clemens321/homeassistant-addons/tree/main/jvcproxy"
