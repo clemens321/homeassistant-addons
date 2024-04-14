@@ -1,6 +1,6 @@
 ---
 name: JDownloader 2
-version: v23.06.1
+version: v24.01.1
 slug: jdownloader
 description: |-
   JDownloader 2 is a free, open-source download management tool with a huge
@@ -26,4 +26,4 @@ apparmor: false
 ports:
   9666/tcp: ~
 ports_description:
-  9666/tcp: "Click'n'Load (disable `Advanced Settings` => `RemoteAPI: Extern Interface Localhost Only` to use this)"
+  9666/tcp: "Click'n'Load (disable 'Advanced Settings' => 'RemoteAPI Extern Interface Localhost Only' to use this)"

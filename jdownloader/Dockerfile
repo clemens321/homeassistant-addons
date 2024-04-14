@@ -1,4 +1,4 @@
-FROM jlesage/jdownloader-2:v23.06.1
+FROM jlesage/jdownloader-2:v24.01.1
 
 RUN sed -i 's~/config~/data/jdownloader~g' \
     /startapp.sh \
