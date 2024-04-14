@@ -1,10 +1,10 @@
-name: "TwitchDL"
+name: "YtDlp"
 version: "0.1"
-slug: "twitchdl"
+slug: "ytdlp"
 description: "A yt-dlp add on"
 url: "https://github.com/clemens321/homeassistant-addons/tree/main/ytdlp"
 arch:
   - amd64
 map:
   - media:rw
-image: "ghcr.io/clemens321/{arch}-addon-twitchdl"
+image: "ghcr.io/clemens321/{arch}-addon-ytdlp"
