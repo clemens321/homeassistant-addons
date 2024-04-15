@@ -1,6 +1,7 @@
 FROM php:8.3
 
 RUN apt-get update && apt-get install --yes --no-install-recommends \
+    ffmpeg \
     git \
     procps \
     yt-dlp \

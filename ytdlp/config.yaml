@@ -1,5 +1,5 @@
 name: "YtDlp"
-version: "0.1"
+version: "0.2"
 slug: "ytdlp"
 description: "A yt-dlp add on"
 url: "https://github.com/clemens321/homeassistant-addons/tree/main/ytdlp"
