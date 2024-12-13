@@ -11,7 +11,7 @@ arch:
   - amd64
   - i386
 init: false
-map: []
+#map: []
 host_network: true
 options:
   knxd_name: "Home-Assistant knxd"

@@ -6,7 +6,7 @@ url: "https://github.com/clemens321/homeassistant-addons/tree/main/jvcproxy"
 arch:
   - amd64
 init: false
-map: []
+#map: []
 options:
   jvc_addr: ""
   jvc_port: "20554"
