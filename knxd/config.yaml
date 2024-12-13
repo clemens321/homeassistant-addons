@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: "knxd"
-version: "0.1.4"
+version: "0.1.5"
 slug: "knxd"
 description: "A knx daemon, e.g. to use together with a vpn client for remote access"
 url: "https://github.com/clemens321/homeassistant-addons/tree/main/knxd"
